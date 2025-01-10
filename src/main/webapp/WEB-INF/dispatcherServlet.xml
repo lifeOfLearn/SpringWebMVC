@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- beans標籤設定官網資訊
+	https://docs.spring.io/spring-framework/reference/data-access/oxm.html -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+  <!-- context
+  https://docs.spring.io/spring-framework/reference/core/beans/java/instantiating-container.html#beans-java-instantiating-container-scan
+  https://docs.spring.io/spring-framework/reference/core/beans/annotation-config.html -->
+  <context:component-scan base-package="owner.exercise"/>
+  
+  <!-- bean class設定 
+  https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-servlet/viewresolver.html -->
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="prefix" value="/WEB-INF/pages/" />
+    <property name="suffix" value=".jsp" />
+  </bean>
+	
+</beans>
