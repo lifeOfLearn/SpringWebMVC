@@ -3,15 +3,25 @@
 	https://docs.spring.io/spring-framework/reference/data-access/oxm.html -->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <!-- 等價class上 @EnableWebMvc
+  https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/enable.html#page-title -->
+  <mvc:annotation-driven/>
   <!-- context
-  https://docs.spring.io/spring-framework/reference/core/beans/java/instantiating-container.html#beans-java-instantiating-container-scan
-  https://docs.spring.io/spring-framework/reference/core/beans/annotation-config.html -->
-  <context:component-scan base-package="owner.exercise"/>
+  annotaation-config
+  	https://docs.spring.io/spring-framework/reference/core/beans/annotation-config.html
+  component-scan 等價 class上使用@ComponentScan(basePackages = "owner.exercise")
+  	https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann.html -->
+  <context:annotation-config/>
+  <context:component-scan base-package="owner.exercise.controller"/>
   
   <!-- bean class設定 
   https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-servlet/viewresolver.html -->
