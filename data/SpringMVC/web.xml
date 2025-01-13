@@ -28,7 +28,7 @@
 		<!-- 指定 Spring MVC 的子容器配置文件 (value可以不設定)-->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+			<param-value>/WEB-INF/dispatcherServlet.xml</param-value>
 		</init-param>
 		<!-- 指定初始化優先級 -->
 		<load-on-startup>1</load-on-startup>
