@@ -39,4 +39,55 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+
+	<!-- 內建filter設定 有三個屬性 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceRequestEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceResponseEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- Filter設定 -->
+	<filter>
+		<filter-name>filterA</filter-name>
+		<filter-class>owner.exercise.filter.HelloFilterA</filter-class>
+	</filter>
+	
+	<!-- Filter 映射 -->
+	<filter-mapping>
+		<filter-name>filterA</filter-name>
+		<url-pattern>/helloController/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<filter>
+		<filter-name>filterB</filter-name>
+		<filter-class>owner.exercise.filter.HelloFilterB</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>filterB</filter-name>
+		<url-pattern>/helloController/*</url-pattern>
+	</filter-mapping>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errors/404.jsp</location>
+	</error-page>
 </web-app>
