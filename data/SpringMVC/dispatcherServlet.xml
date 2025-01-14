@@ -21,12 +21,13 @@
   component-scan 等價 class上使用@ComponentScan(basePackages = "owner.exercise")
   	https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann.html -->
   <context:annotation-config/>
-  <context:component-scan base-package="owner.exercise.controller"/>
+  <context:component-scan base-package="owner.exercise"/>
   
   <!-- bean class設定 
   https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-servlet/viewresolver.html -->
   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-    <property name="prefix" value="/WEB-INF/pages/" />
+    <!--  <property name="prefix" value="/pages/" />  -->
+    <property name="prefix" value="/" />
     <property name="suffix" value=".jsp" />
   </bean>
 	

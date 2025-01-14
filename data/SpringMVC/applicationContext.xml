@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	<!-- 啟用 Spring MVC 配置 -->
+    <mvc:annotation-driven/>
+
+    <!-- 配置攔截器
+    https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html
+     -->	
+	<mvc:interceptors>
+		<!-- 此bean攔截器註冊到全局容器, 為單例-->
+		<!-- LocaleChangeInterceptor 內建處理語言 -->
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+		<!-- 設定局部性攔截器 -->
+		<mvc:interceptor>
+			<!-- 作用路徑 -->
+			<mvc:mapping path="/**"/>
+			<!-- 排除作用下的某些路徑 -->
+			<!-- 
+			<mvc:exclude-mapping path="/admin/**"/>
+			-->
+			<!-- ThemeChangeInterceptor 內建的 -->
+			<bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/helloController/**" />
+			<bean class="owner.exercise.interceptor.HelloInterceptorA" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/helloController/**" />
+			<bean class="owner.exercise.interceptor.HelloInterceptorB" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+</beans>
