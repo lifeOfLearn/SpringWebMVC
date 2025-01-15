@@ -7,8 +7,15 @@
 		http://www.springframework.org/schema/mvc
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
+	<!--  java bean validation
+	https://docs.spring.io/spring-framework/reference/core/validation/beanvalidation.html#validation-beanvalidation-spring-method
+	 -->
+	<!-- 這邊目前沒有設定 -->
+	
 	<!-- 啟用 Spring MVC 配置 -->
     <mvc:annotation-driven/>
+    <!-- https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/validation.html -->
+    <!--  <mvc:annotation-driven validator="globalValidator"/>  -->
 
     <!-- 配置攔截器
     https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html

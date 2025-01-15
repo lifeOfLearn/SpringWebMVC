@@ -2,7 +2,6 @@ package owner.exercise.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 //無宣告參數,bean為class名稱但第一個字為小寫
 @Controller
