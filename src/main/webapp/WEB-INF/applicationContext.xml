@@ -2,10 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop
+		https://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/mvc
-		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		">
 	
 	<!--  java bean validation
 	https://docs.spring.io/spring-framework/reference/core/validation/beanvalidation.html#validation-beanvalidation-spring-method
@@ -17,9 +21,9 @@
     <!-- https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/validation.html -->
     <!--  <mvc:annotation-driven validator="globalValidator"/>  -->
 
-    <!-- 配置攔截器
-    https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html
-     -->	
+<!-- Interceptor
+	https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html 
+-->	
 	<mvc:interceptors>
 		<!-- 此bean攔截器註冊到全局容器, 為單例-->
 		<!-- LocaleChangeInterceptor 內建處理語言 -->
@@ -45,4 +49,8 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 	
+	
+<!-- AOP -->
+	<aop:aspectj-autoproxy />
+	<bean id="helloAspectAOP" class="owner.exercise.aop.HelloAOP" />
 </beans>

@@ -28,7 +28,7 @@
     
     <dependency>
     	<groupId>org.springframework</groupId>
-    	<artifactId>spring-aop</artifactId>
+    	<artifactId>spring-aspects</artifactId>
     	<version>6.2.1</version>
     </dependency>
     
