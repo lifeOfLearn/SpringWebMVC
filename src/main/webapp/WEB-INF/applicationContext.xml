@@ -2,15 +2,30 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/aop
-		https://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/mvc
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
 		">
 	
+	<context:component-scan base-package="owner.exercise.mybatis" />
+	
+	<!-- 
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
+        <property name="url" value="jdbc:mariadb://localhost:4303/practicedb"/>
+        <property name="username" value="practice"/>
+        <property name="password" value="practice123"/>
+    </bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource"/>
+    	<property name="configLocation" value="src.main.resources.MyBatisConfig.xml"/>
+	</bean>
+ -->
+
 	<!--  java bean validation
 	https://docs.spring.io/spring-framework/reference/core/validation/beanvalidation.html#validation-beanvalidation-spring-method
 	 -->
@@ -24,6 +39,7 @@
 <!-- Interceptor
 	https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html 
 -->	
+
 	<mvc:interceptors>
 		<!-- 此bean攔截器註冊到全局容器, 為單例-->
 		<!-- LocaleChangeInterceptor 內建處理語言 -->
@@ -48,9 +64,5 @@
 			<bean class="owner.exercise.interceptor.HelloInterceptorB" />
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
-	
-<!-- AOP -->
-	<aop:aspectj-autoproxy />
-	<bean id="helloAspectAOP" class="owner.exercise.aop.HelloAOP" />
+
 </beans>

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import owner.exercise.aop.E;
 import owner.exercise.aop.HelloAOP;
 
 @ExtendWith(SpringExtension.class)
@@ -19,8 +18,8 @@ public class AspectThisAndTargetTest {
 	@Test
 	public void test() {
 		System.out.println(helloAOP);
-		E e = new E();
-		e.tt();
+//		E e = new E();
+//		e.tt();
 //		helloAOP.new F();
 //		helloAOP.new G();
 //		helloAOP.new H();

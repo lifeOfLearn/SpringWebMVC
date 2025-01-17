@@ -8,8 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.annotation.PostConstruct;
 
-@RequestMapping("helloController")
+
 @Controller
+@RequestMapping("helloController")
 public class HelloController {
 	
 	@PostConstruct
